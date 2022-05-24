@@ -143,7 +143,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision){
-		if(collision.CompareTag("Finish") && GemController.totalGems == 5){
+		if(collision.CompareTag("Finish") && GemController.totalGems >= 5){
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			GemController.totalGems = 0;
 		}
