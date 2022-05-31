@@ -27,19 +27,19 @@ public class HeartSystem : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int d)
+    public void TakeDamage()
     {
+        
         if (life >= 1)
         {
-            life -= d; //1-1=0
+            life -= 1; //1-1=0
             Destroy(hearts[life].gameObject); //[0]
             SoundEffectsManagerScript.PlaySound("DamageTaken");
-
-            if (life < 1)
-            {
+                if (life < 1)
+             {
                 dead = true;
             }
+            
         }
-        
     }
 }

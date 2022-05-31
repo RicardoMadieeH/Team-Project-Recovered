@@ -26,20 +26,21 @@ public class CrabPatrol : MonoBehaviour
     }
 
     private void Update(){
-        if(movingLeft){
-            if(enemy.position.x >= leftEdge.position.x)
-            MoveInDirection(-1);
-            else
-            DirectionChange();
+        if(enemy!=null)
+            if(movingLeft){
+                if(enemy.position.x >= leftEdge.position.x)
+                MoveInDirection(-1);
+                else
+                DirectionChange();
             
-        }
-        else{
-            if(enemy.position.x <= rightEdge.position.x)
-            MoveInDirection(1);
-            else
-            DirectionChange();
+            }
+            else{
+                if(enemy.position.x <= rightEdge.position.x)
+                MoveInDirection(1);
+                else
+                DirectionChange();
             
-        }
+            }
         
     }
 
