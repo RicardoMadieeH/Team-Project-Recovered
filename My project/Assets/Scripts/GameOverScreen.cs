@@ -8,7 +8,7 @@ public class GameOverScreen : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene("Caves1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BackToMenu()
