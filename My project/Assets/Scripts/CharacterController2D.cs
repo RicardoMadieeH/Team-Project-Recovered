@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	public UnityEvent OnDamageEvent;
+
+	public static List<string> sceneList = new List<string>();
+
+
 
 	private void Awake()
 	{
@@ -153,6 +158,8 @@ public class CharacterController2D : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision){
 		if(collision.CompareTag("Finish") && GemController.totalGems >= 5){
+			sceneList.Add(SceneManager.GetActiveScene().name);
+			Debug.Log("prev scene was " + SceneManager.GetActiveScene().name);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			GemController.totalGems = 0;
 		}
@@ -165,6 +172,9 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		if(collision.CompareTag("DeathPlane")){
+			Scene scene = SceneManager.GetActiveScene();
+			sceneList.Add(scene.name);
+			Debug.Log("prev scene was " + scene.name);
 			SceneManager.LoadScene("GameOver");
             Debug.Log("We are dead!");
 		}

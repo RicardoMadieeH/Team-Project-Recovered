@@ -21,6 +21,9 @@ public class HeartSystem : MonoBehaviour
         if (dead == true)
         {
             // ON DEAD CODE
+            Scene scene = SceneManager.GetActiveScene();
+			CharacterController2D.sceneList.Add(scene.name);
+			Debug.Log("prev scene was " + scene.name);
             SceneManager.LoadScene("GameOver");
             Debug.Log("We are dead!");
 

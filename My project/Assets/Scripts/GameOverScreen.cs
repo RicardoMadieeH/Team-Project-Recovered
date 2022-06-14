@@ -8,7 +8,7 @@ public class GameOverScreen : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(CharacterController2D.sceneList[CharacterController2D.sceneList.Count -1]);
     }
 
     public void BackToMenu()
